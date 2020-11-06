@@ -34,3 +34,24 @@ c.beginPath();
 c.arc(650, 400, 30, 0, Math.PI * 2, false);
 c.strokeStyle = "green";
 c.stroke();
+
+let colors = ["red", "blue", "green", "yellow"];
+
+function randomCircles(numberOfCircles) {
+  for (let i = 0; i < numberOfCircles; i++) {
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight;
+    c.beginPath();
+    c.arc(x, y, 30, 0, Math.PI * 2, false);
+    if (i % 4) {
+      c.strokeStyle = colors[2];
+    } else if (i % 3) {
+      c.strokeStyle = colors[1];
+    } else if (i % 2) {
+      c.strokeStyle = colors[0];
+    }
+    c.stroke();
+  }
+}
+
+randomCircles(300);
